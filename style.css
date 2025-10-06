@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* --- Global Styles & Body Setup --- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5; /* Light grey background */
+    color: #444; /* Dark grey text */
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Full viewport height */
+    margin: 0;
+}
+
+/* --- Main Form/Container Styling --- */
+.form {
+    width: 400px;
+    max-width: 90vw; /* Responsive width */
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* --- Input Field Styling --- */
+.input {
+    width: 100%;
+    padding: 15px 10px;
+    border: 2px solid #ddd; /* Light border */
+    border-radius: 8px;
+    font-size: 1.1rem;
+    color: #333;
+    transition: border-color 0.3s ease;
+    margin-bottom: 10px; /* Space below input */
+}
+
+.input::placeholder {
+    color: #aaa;
+    font-weight: 300;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #6c63ff; /* Focus color - a pleasant violet/blue */
+}
+
+/* --- To Do List (UL) Styling --- */
+.list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee; /* Subtle separator */
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.list li:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+.list li:hover {
+    background-color: #f9f9f9;
+}
+
+/* --- Task Complete (Checked) State --- */
+.list li.checked {
+    color: #aaa; /* Lighter text color for completed tasks */
+    text-decoration: line-through; /* Strikethrough for completion */
+    background-color: #e6e6fa; /* Very light lavender background */
+}
+
+/* --- Icon Styling (Check and Trash) --- */
+.list i {
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-left: 10px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.list i:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Specific colors for icons */
+.list li .fa-check-square {
+    color: #28a745; /* Green for check */
+    order: 2; /* Order them after the trash icon if you prefer (optional) */
+}
+
+.list li .fa-trash {
+    color: #dc3545; /* Red for trash */
+    order: 3;
+}
+
+/* Hide the check icon when a task is NOT checked */
+.list li:not(.checked) .fa-check-square {
+    color: #ccc; /* Light grey when not completed */
+}
+
+/* Apply full color to the check icon when task IS checked */
+.list li.checked .fa-check-square {
+    color: #28a745;
+}
+
+/* Adjust the text order within the list item */
+.list li > * {
+    /* Ensures text takes up most space and icons are on the right */
+    flex-shrink: 0; 
+}
+.list li > :first-child:not(i) {
+    /* The actual task text */
+    flex-grow: 1; 
+}
