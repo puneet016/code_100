@@ -10,3 +10,4 @@ for item in list_of_items:
      if condition:
          continue
     #then do that inside while loop
+    #
