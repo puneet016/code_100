@@ -19,7 +19,7 @@ while True:
         continue
    
     count+=1
-    total=total_input_number
+   
     average=total/count
     print(total,count,average)
 
